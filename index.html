@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Script linking to A-Frame-->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@436d40c/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
+
+    <!--Link to my custom Script-->
+    <script src="js/script.js"></script>
+    <title>A-Frame-Puzzle</title>
+</head>
+<body>
+    <a-scene>
+        <!--Motion (Original position is "0 1.6 3")-->
+        <!--<a-entity id="rig" movement-controls="fly: true; speed: 0.5">
+
+                
+                <a-entity camera
+                    position="0 1.6 10"
+                    rotation="0 0 0"
+                    look-controls>
+                </a-entity>
+            </a-entity> -->
+
+        <a-camera>
+        <a-entity cursor="fuse: true; fuseTimeout: 1000" position="0 0 -1"
+            geometry="primitive: sphere; radius: 0.005"
+            material="color: #000000; shader: flat; opacity: 0.5"
+            animation__enter="property: scale;
+                              to: 3 3 3;
+                              dur: 1000;
+                              easing: linear;
+                              startEvents: mouseenter"
+            event-set__reset="_event: animationcomplete__enter; scale: 1 1 1"
+            animation__leave="property: scale;
+                              to: 1 1 1;
+                              dur: 1000;
+                              easing: linear;
+                              startEvents: mouseleave">
+        </a-entity>
+        </a-camera>
+
+
+
+        <!-- Forest environment link (comment out when unwanted) -->
+            <!-- <a-entity
+                environment="preset: forest;
+                groundColor: #445;
+                grid: cross;">
+            </a-entity> -->
+
+        <!--Asset Manager-->
+            <a-assets>
+                <img id="Grass" src="assets/Grass.jpeg">
+                <img id="Walls" src="assets/Walls.jpeg">
+                <img id="Gold" src="assets/Gold.jpeg">
+                <img id="Trap" src="assets/Trap.jpeg">
+                <img id="Stone" src="assets/Stone.jpeg">
+                <img id="Meme" src="assets/Meme.jpeg">
+            </a-assets>
+        
+        <!--Environment-->
+            <a-plane position="0 0 0" scale="500 500 500" rotation="-90 0 0" src="assets/Grass.jpeg"></a-plane>
+            <a-plane position="0 0.1 -21" scale="65 47.5 50" rotation="-90 0 0"src="assets/Walls.jpeg"></a-plane>
+
+            <a-box position="0 1.6 95" scale="5 5 5" color="C7C7C7"></a-box>
+
+        <!--Maze Walls-->
+            <a-box position="2 0 -5" scale="1 10 5" src="assets/Walls.jpeg"></a-box>
+            <a-box position="-2 0 -5" scale="1 10 5" src="assets/Walls.jpeg"></a-box>
+            <a-box position="14 0 -8" scale="1 10 25" rotation="0 90 0"src="assets/Walls.jpeg"></a-box>
+            <a-box position="-14 0 -8" scale="1 10 25" rotation="0 90 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="14.25 0 -32" scale="1 10 25" rotation="0 90 0"src="assets/Walls.jpeg"></a-box>
+            <a-box position="-14.25 0 -32" scale="1 10 25" rotation="0 90 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="-27 0 -20" scale="1 10 25" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="27 0 -20" scale="1 10 25" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+
+        <!--Pyramaid-->
+            <a-box position="-20 0 -2.5" scale="10 10 35" rotation="0 90 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="-32.5 0 -25" scale="10 10 35" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="-20 0 -38" scale="10 10 35" rotation="0 90 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="20 0 -38" scale="10 10 35" rotation="0 90 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="32.5 0 -25" scale="10 10 35" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="20 0 -2.5" scale="10 10 35" rotation="0 90 0" src="assets/Walls.jpeg"></a-box>
+            
+
+            <a-entity>
+            <a-box position="0 7.5 -19" scale="55 5 27.5" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="0 12.5 -19" scale="25 5 15" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="0 17 -19" scale="5 5 5" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+            </a-entity>
+
+            <a-box position="0 0 -42" scale="20 10 2" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+
+            <a-entity>
+            <a-box position="12 0 -13" scale="20 10 1" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="2 0 -18" scale="20 10 1" rotation="0 90 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="16.936 0 -22.71" scale="20 10 1" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="11.93 0 -27.87" scale="20 10 1" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="17.571 0 -17.89" scale="20 10 1" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+            </a-entity>
+
+            <a-entity>
+            <a-box position="-1.937 0 -17.9" scale="20 10 1" rotation="0 90 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="-12.26 0 -27.46" scale="20 10 1" rotation="0 0 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="-21.8 0 -19.18" scale="16 10 1" rotation="0 90 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="-15 0 -16.3" scale="16 10 1" rotation="0 90 0" src="assets/Walls.jpeg"></a-box>
+            <a-box position="-7.67 0 -18.93" scale="16 10 1" rotation="0 90 0" src="assets/Walls.jpeg"></a-box>
+            </a-entity>
+
+            <a-box position="0.094 5.466 -36.76" scale="6 10 1" rotation="90 0 0" src="assets/Walls.jpeg"></a-box>
+
+            <a-box position="0 2 -37.5" scale="3 3 3" src="assets/Gold.jpeg"></a-box>
+            <a-box position="0 0.5 -38" scale="0.5 0.5 0.5" src="assets/Trap.jpeg"></a-box>
+            
+
+            <a-text color="black" id="scoreText" value="Welcome to 'The Maze'" position="-1.1 2 -6"></a-text>
+    
+            <a-entity oculus-touch-controls="hand: left" update-score-text="Welcome"></a-entity>
+            <a-entity oculus-touch-controls="hand: right" update-score-text="Welcome"></a-entity>
+
+
+
+            <a-box id="Red" color="#AA0000" position="4.23 0.6 -10.55"
+            event-set__enter="_event: mouseenter; material.color: #FF0000"
+            event-set__leave="_event: mouseleave; material.color: #AA0000"
+            src="assets/Key.jpeg">
+            </a-box>
+            <!-- event-set__tarvis="_event: click; _target: #blue; visible: false" -->
+            
+
+            <a-box id="Blue" color="#0000AA" position="0 2.475 -31.93" scale="3.55 5 0.1" visible="true"
+            event-set__resvis="_event: click; visible: true"
+            src="assets/Stone.jpeg">
+            </a-box>
+
+    </a-scene>
+</body>
+</html>
